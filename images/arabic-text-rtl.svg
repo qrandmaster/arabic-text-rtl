@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b3654"/>
+      <stop offset="1" stop-color="#131824"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bg)" stroke="#3f4e78" stroke-width="2"/>
+  <!-- ثلاثة أسطر نصّ، محاذاتها إلى اليمين كما تُكتب العربية -->
+  <rect x="34" y="30" width="60" height="11" rx="5.5" fill="#eef1f8"/>
+  <rect x="46" y="49" width="48" height="11" rx="5.5" fill="#c6cee1"/>
+  <rect x="58" y="68" width="36" height="11" rx="5.5" fill="#98a3bd"/>
+  <!-- سهم إلى اليسار: جهة نهاية السطر في القراءة العربية -->
+  <path d="M86 96 H50 M50 96 l13 -11 M50 96 l13 11" fill="none" stroke="#5b8cff"
+        stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

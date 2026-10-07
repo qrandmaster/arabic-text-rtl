@@ -1,0 +1,35 @@
+{
+  "name": "Arabic Text RTL — نصّ عربي",
+  "description": "يُصلح عرض النص العربي في أي موقع دون كسر تخطيطه: وضع «نص» يضبط اتجاه النص ومحاذاته وحده، ووضع «اتجاه كامل» يقلب المستند. Fix Arabic text direction without mirroring a site's layout.",
+  "version": "1.2.7",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab", "scripting", "storage", "contextMenus"],
+  "action": {
+    "default_title": "Arabic Text RTL — تبديل: إيقاف ← كامل ← نص فقط"
+  },
+  "commands": {
+    "toggle-rtl": {
+      "suggested_key": {
+        "default": "Alt+Shift+R"
+      },
+      "description": "تدوير حالة الاتجاه"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["rtl-content.js"],
+      "css": ["rtl.css"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "icons": {
+    "32": "images/arabic-text-rtl-32.png",
+    "48": "images/arabic-text-rtl-48.png",
+    "128": "images/arabic-text-rtl-128.png"
+  }
+}

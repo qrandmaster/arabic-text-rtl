@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>rtl-toggle — وضع «النص فقط» على صفحة لاتينية التخطيط</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #1b1b1b; color: #e6e6e6;
+         font: 15px/1.9 "Segoe UI", Tahoma, sans-serif; }
+  /* تخطيط الموقع: لاتيني كما صُمّم */
+  .topbar { display: flex; align-items: center; gap: 10px; padding: 8px 14px;
+            background: #232323; border-bottom: 1px solid #333; direction: ltr; }
+  .topbar .brand { font-weight: 700; }
+  .topbar .spacer { flex: 1; }
+  .topbar button { background: #2f2f2f; color: #e6e6e6; border: 1px solid #3d3d3d;
+                   border-radius: 6px; padding: 4px 10px; }
+  main { padding: 14px 18px; max-width: 900px; margin: 0 auto; direction: ltr; }
+  h1 { font-size: 17px; }
+  .card { border: 1px solid #333; border-radius: 10px; padding: 12px 14px; margin: 12px 0; }
+  .centered { text-align: center; color: #9aa4b2; }
+  pre { background: #141414; border: 1px solid #333; border-radius: 8px; padding: 10px;
+        direction: ltr; text-align: left; overflow: auto; }
+</style>
+<link rel="stylesheet" href="../rtl.css">
+<script>
+  window.chrome = {
+    runtime: { id: 'test', sendMessage() {}, onMessage: { addListener() {} } },
+    storage: { local: {
+      get: (keys) => {
+        const out = {};
+        for (const key of [].concat(keys || [])) if (String(key).startsWith('mode:')) out[key] = 'soft';
+        return Promise.resolve(out);
+      },
+      set: () => Promise.resolve(),
+    } },
+  };
+</script>
+</head>
+<body>
+  <div class="topbar">
+    <span class="brand">DSH Web</span>
+    <span class="spacer"></span>
+    <button>Settings</button>
+    <button>New chat</button>
+  </div>
+
+  <main>
+    <h1>Second: real subscription prices in the market</h1>
+
+    <div class="card">
+      <p>تنقسم خيارات الدفع إلى نموذجين مختلفين تماماً: نموذج ثابت شهري ونموذج حسب الاستهلاك الفعلي.</p>
+      <p>Cursor Pro: 20$ شهرياً (الوكيل الأكثر استقراراً وقوة في العالم، مبني على VS Code).</p>
+      <p>نموذج DeepSeek-Chat/Flash: نحو 0.14$ - 0.28$ لكل مليون توكن، ورصيد الـ 5$ يكفي لإنجاز عشرات المشاريع الكاملة.</p>
+      <ul>
+        <li>بند عربي أوّل، وفيه تفصيل قصير.</li>
+        <li>Windsurf Pro (من Codeium): 15$ شهرياً (المتدفق Cascade بوكيل Cursor المنافس المباشر لـ).</li>
+        <li>بند عربي ثالث.</li>
+      </ul>
+    </div>
+
+    <p class="centered">جملة عربية وضعها المصمّم في وسط السطر عمداً.</p>
+
+    <div class="card">
+      <p>An English paragraph must stay left aligned, because it holds no Arabic letters at all.</p>
+      <pre>npm install dsh        # تعليق عربي داخل كتلة شيفرة</pre>
+    </div>
+  </main>
+
+<script src="../rtl-content.js"></script>
+</body>
+</html>
